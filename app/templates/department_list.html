@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content%}
+<style>
+
+
+    .five {
+        list-style-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/82eb619d-9a12-4ef9-8d6d-3bae2b93b9a8/da6hce-84488159-e547-4596-9af3-156d2f797946.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzgyZWI2MTlkLTlhMTItNGVmOS04ZDZkLTNiYWUyYjkzYjlhOFwvZGE2aGNlLTg0NDg4MTU5LWU1NDctNDU5Ni05YWYzLTE1NmQyZjc5Nzk0Ni5naWYifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.nczbvKiXcVx_lOxy1TqbJ8MzDwd9rrEscnvBJRpjpnA");
+    }
+      
+     li {
+        color-scheme: dark;
+        font-size: 20px;
+      }
+      
+a:hover{
+    text-decoration: none;
+}
+      .wrapper {
+        display: flex;
+        align-items: center;
+        justify-items: center;
+        flex-direction: row;
+      }
+      
+
+      li {
+        cursor: pointer;
+      }
+      
+    </style>
+
+
+    <section class="banner_area">
+      <div class="banner_inner d-flex align-items-center">
+        <div class="container">
+          <div
+          class="banner_content d-md-flex justify-content-between align-items-center"
+          >
+          <div class="mb-3 mb-md-0">
+              <h2> Departments</h2>
+              <p>Belding years moveth earth green behold wherein</p>
+          </div>
+          <div class="page_link">
+              <a href="{% url 'index' %}">Home</a>
+              <a href="{% url 'department_list' %}">Departments</a>
+
+          </div>
+      </div>
+  </div>
+  </div>
+  </section>
+
+<div class="container" style="padding-top: 20px;">
+    <ul class="five">
+        <a href="{% url 'opd' %}"> <li>OPD</li></a>
+        <a href="{% url 'AC' %}"> <li>Antenatal Care</li></a>
+        <a href="{% url 'theater' %}"> <li>Theater</li></a>
+        <a href="{% url 'maternity' %}"> <li>Maternity</li></a>
+        <a href="{% url 'Emergency' %}"> <li>Emergency </li></a>
+        <a href="{% url 'MFP' %}"> <li>Male,Female&Pedeatics </li></a>
+        <a href="{% url 'add_record' %}"> <li>Records </li></a>
+        <a href="{% url 'Pharmacy' %}"> <li>Pharmacy</li></a>
+        <a href="{% url 'Laboratory' %}"> <li>Laboratory</li></a>
+      </ul>
+
+</div>
+
+
+
+
+{% endblock %}

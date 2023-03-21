@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content%}
+
+<section class="banner_area">
+    <div class="banner_inner d-flex align-items-center">
+      <div class="container">
+        <div
+        class="banner_content d-md-flex justify-content-between align-items-center"
+        >
+        <div class="mb-3 mb-md-0">
+            <h2>About Us</h2>
+            <p>Belding years moveth earth green behold wherein</p>
+        </div>
+        <div class="page_link">
+            <a href="{% url 'index' %}">Home</a>
+            <a href="{% url 'about' %}">About Us</a>
+        </div>
+    </div>
+</div>
+</div>
+</section>
+
+<div class="container" style="padding: 50px 0px 0px 0px;">
+    <div class="card">
+        <h3 class='ss' style="padding-top: 20px;">Our Vision and Mission</h3>
+        <div class="card-body" style='font-size: 16px; padding: 0px 30px 30px 30px;'>
+    Medcare is dedicated to providing exceptional healthcare services to our patients.
+    we offer a wide range of medical services, and have state-of-the-art facilities and advanced medical technologies.
+    Medcare strives to <b>create a warm and welcoming environment</b> that promotes healing and relaxation for our patients.
+    Patient safety and satisfaction is our top priority, and we adhere to the highest standards of quality and safety.
+    Medcare has been serving the community for <b>twenty  years</b> and is committed to helping patients achieve optimal health outcomes.   
+</div>
+</div>
+</div>
+
+
+<div style="padding-top: 90px;">
+    <section class="hotline-area text-center area-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                <h3 class="ss"  style="padding: 50px 0px 0px 0px; color: aliceblue;" >Emergency hotline</h3>
+                <a style="color: aliceblue;" href="tel:0234567890"> <span class="ee">(+233) 23 456 7890</span></a>
+                    <p class="pt-3" style="padding-bottom: 20px;">We provide 24/7 customer support. Please feel free to contact us <br>for emergency case.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    </div>
+
+    <div style="padding: 50px;"></div>
+
+{% endblock%}

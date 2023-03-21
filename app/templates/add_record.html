@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content%}
+
+
+<section class="banner_area">
+    <div class="banner_inner d-flex align-items-center">
+      <div class="container">
+        <div
+        class="banner_content d-md-flex justify-content-between align-items-center"
+        >
+        <div class="mb-3 mb-md-0">
+            <h2>Add a record</h2>
+            <p>Belding years moveth earth green behold wherein</p>
+        </div>
+        <div class="page_link">
+            <a href="{% url 'index' %}">Home</a>
+            <a href="{% url 'Records' %}">Records</a>
+        </div>
+        <a href="{% url 'record_list'%}">Record List</a>
+    </div>
+</div>
+</div>
+</section>
+
+{% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+    <div style="padding-top: 4px;" id="alert" class="alert alert-success alert-dismissible fade show container" role="alert">
+      {{ message }}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+
+<div class="container" style="width: 50rem; padding-top: 40px;">
+    <form method="POST">
+        {% csrf_token %}
+      <input type="text" name='name' class="form-control" placeholder="Name" required><br>
+      <input type="number" name='age' class="form-control" placeholder="Age" required><br>
+      <select class="form-control" id="{{ form.gender.id_for_label }}" name="{{ form.gender.name }}">
+        <option value="" disabled selected>Select gender</option>
+        {% for value, label in form.gender.field.choices %}
+          <option value="{{ value }}" {% if value == form.gender.value %} selected {% endif %}>{{ label }}</option>
+        {% endfor %}
+      </select><br>
+      <input type="text" name='House_number' class="form-control" placeholder="House Number" required><br>
+      <input type="text" name='Residence' class="form-control" placeholder="Next of Kin" required><br>
+      <input type="text" name='Next_of_Kin' class="form-control" placeholder="Residence" required><br>
+    <input type="number" name='Phone_number' id="typeNumber" required class="form-control" placeholder="Phone number" /><br>
+    <input type="text" name='Occupation' class="form-control" placeholder="Occupation" required><br>
+    <input type="text" name='NHIS_number' class="form-control" placeholder="NHIS number" required><br>
+    <input type="text" name='Folder_number' class="form-control" placeholder="Folder Number" required><br>
+    <button  type="submit" class="btn btn-primary text-center">Submit</button>
+  </form>
+
+</div>
+
+<div style="padding-bottom: 60px;">
+
+</div>
+<script>
+  setTimeout(function() {
+    $('#alert').alert('close');
+  }, 5000);
+</script>
+
+
+{% endblock %}

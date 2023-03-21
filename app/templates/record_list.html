@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content%}
+<style>
+
+
+body {
+  margin-bottom: 100px;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+</style>
+
+
+<div class="container" style="padding-top: 25px;">
+    <br><br>
+    {% if user.is_Records or user.is_superuser %}
+<a class="btn btn-success" href="{% url 'search_record' %}">Search Records</a> | | <a class="btn btn-secondary" href="{% url 'add_record' %}">Add Records</a><br><br>
+{% endif %}
+    <table class="table table-striped table-hover table-bordered">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Age</th>
+          <th scope="col">House Number</th>
+          <th scope="col">Residence</th>
+          <th scope="col">Next of Kin</th>
+          <th scope="col">Phone</th>
+          <th scope="col">Occupation</th>
+          <th scope="col">NHIS</th>
+          <th scope="col">Date</th>
+          <th scope="col">Update</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+    {% if obj %}
+      {% for obj in obj %}
+        <tr>
+          <td>{{ obj.id }}</a></td>
+          <td>{{ obj.name }}</td>
+          <td>{{ obj.age }} </td>
+          <td>{{ obj.House_number }}</td>
+          <td>{{ obj.Residence }}</td>
+          <td>{{ obj.Next_of_Kin }}</td>
+          <td>{{ obj.Phone_number }}</td>
+          <td>{{ obj.Occupation }}</td>
+          <td>{{ obj.NHIS_number }}</td>
+          <td>{{ obj.date }}</td>
+          <td><a href="{% url 'record_details' obj.pk %}">View Details</a></td>
+        </tr>
+      {% endfor %}
+      {% endif %}    
+    
+      
+        </tbody>
+      </table>
+    
+
+    </div>
+
+{% endblock %}

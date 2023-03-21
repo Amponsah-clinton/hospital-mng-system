@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content%}
+<style>  
+    
+  </style>
+
+<section class="banner_area">
+    <div class="banner_inner d-flex align-items-center">
+      <div class="container">
+        <div
+        class="banner_content d-md-flex justify-content-between align-items-center"
+        >
+        <div class="mb-3 mb-md-0">
+            <h2>Maternity Department</h2>
+            <p>Belding years moveth earth green behold wherein</p>
+        </div>
+        <div class="page_link">
+            <a href="{% url 'index' %}">Home</a>
+            <a href="{% url 'Laboratory' %}">Laboratory</a>
+        </div>
+    </div>
+</div>
+</div>
+</section>
+<br>
+
+{% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+    <div style="padding-top: 4px;" id="alert" class="alert alert-success alert-dismissible fade show container" role="alert">
+      {{ message }}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+
+
+<div class="container">
+  <form action="" method="post">
+      {% csrf_token %}
+      {{form.as_p}}
+      <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+<br><br>
+<div class="container">
+<a class="btn btn-success  btn-lg"  href="{% url 'record_list' %}">Back</a>
+</div>
+
+
+<div style="padding-bottom: 60px;">
+
+</div>
+
+
+<script>
+  setTimeout(function() {
+    $('#alert').alert('close');
+  }, 5000);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

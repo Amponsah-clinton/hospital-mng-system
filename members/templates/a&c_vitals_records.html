@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content%}
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
+</head>
+
+{% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+    <div style="padding-top: 4px;" id="alert" class="alert alert-success alert-dismissible fade show container" role="alert">
+      {{ message }}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+
+
+<div class="container">
+  <form action="{% url 'record_list' %}" method="post">
+      {% csrf_token %}
+        {{ form.as_p }}
+      <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+  </form>
+</div>
+
+{% comment %} 
+
+<div class="container" style="width: 50rem; padding-top: 140px;">
+  <form method="POST" action="">
+    {% csrf_token %}
+    <label for="patient">Patient:</label>
+    <select class="selectpicker" data-show-subtext="false" name="patient" data-live-search="true">
+        <option value="{{form.patient}}"></option>
+    </select><br><br>
+    <textarea class="form-control" name="Findings" placeholder="Enter your Findings" id="exampleFormControlTextarea1" rows="3"></textarea><br>
+    <textarea class="form-control" name="body_examination" placeholder="Enter body_examination" id="exampleFormControlTextarea1" rows="3"></textarea>
+ <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+ {% endcomment %}
+
+
+<br><br>
+<div class="container">
+<a class="btn btn-success  btn-lg"  href="{% url 'record_list' %}">Back</a>
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div style="padding-bottom: 60px;">
+
+</div>
+
+
+<script>
+  setTimeout(function() {
+    $('#alert').alert('close');
+  }, 5000);
+</script>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
+{% endblock %}

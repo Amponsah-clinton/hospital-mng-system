@@ -1,0 +1,157 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static 'css/css.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/logo.png' %}">
+    <link rel="stylesheet" href="vendors/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <title>Medcare</title>
+  </head>
+  <body>
+
+
+
+    <nav id="navbar1" class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'index' %}">
+                <img src="{% static 'images/logo.png' %}" width="30" height="30" class="d-inline-block align-top" alt="">
+                Medcare
+              </a>
+    
+        <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"><span class="dark-blue-text">
+        <i class="fa fa-bars fa-1x"></i></span>
+        </button>
+        
+       <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+         <ul class="nav navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link" id="active1" href="{% url 'index' %}">Home</a></li>
+            <li class="nav-item"><a class="nav-link" id="active2" href="{% url 'about' %}">About</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Departments
+              </a>
+              
+                
+                
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{% url 'opd' %}">OPD</a>
+                <a class="dropdown-item" href="{% url 'AC' %}">Antenatal Care</a>
+                <a class="dropdown-item" href="{% url 'theater' %}">Theater</a>
+                <a class="dropdown-item" href="{% url 'maternity' %}">Maternity</a>
+                <a class="dropdown-item" href="{% url 'Emergency' %}">Emergency</a>
+                <a class="dropdown-item" href="{% url 'MFP' %}">Male,Female&Pedeatics</a>
+                <a class="dropdown-item" href="{% url 'add_record' %}">Records</a>
+                <a class="dropdown-item" href="{% url 'Pharmacy' %}">Pharmacy</a>
+                <a class="dropdown-item" href="{% url 'Laboratory' %}">Laboratory</a>
+            </li>
+            {% if user.is_superuser %}
+            <li class="nav-item"><a class="nav-link" id="active3" href="{% url 'register' %}">Register</a></li>
+            {% endif %}
+            {% if user.is_authenticated %}
+            <li class="nav-item"><a class="nav-link" id="active2" href="{% url 'logout_user' %}">Logout</a></li>
+            {% else %}
+            <a href="{% url 'login_view' %}">  <button type="button" class="btnz">Login</button></a>
+            {% endif %}
+
+        </ul>
+        </div>
+        </div>
+    </nav>
+   
+{% block content %}
+{% endblock %}
+
+
+
+<footer class="text-center text-lg-start bg-dark text-white">
+ 
+  <section class="" style="padding-top: 5px;">
+    <div class="container text-center text-md-start mt-5">
+      <div class="row mt-3">
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          <h6 class="text-uppercase fw-bold mb-4 navbar-brand">
+            Medcare
+          </h6>
+          <p>
+            Here you can use rows and columns to organize your footer content. Lorem ipsum
+            dolor sit amet, consectetur adipisicing elit.
+          </p>
+        </div>
+
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+          <h6 class="text-uppercase fw-bold mb-4" style="color: aqua;">
+           Departments
+          </h6>
+          <p>
+            <a href="{% url 'Emergency' %}" class="text-reset">Emergency</a>
+          </p>
+          <p>
+            <a href="{% url 'maternity' %}" class="text-reset">Maternity</a>
+          </p>
+          <p>
+            <a href="{% url 'Pharmacy' %}" class="text-reset">Pharmacy</a>
+          </p>
+          <p>
+            <a href="{% url 'Laboratory' %}" class="text-reset">Laboratory</a>
+          </p>
+        </div>
+
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+          <h6 class="text-uppercase fw-bold mb-4"  style="color: aqua;">
+           Customer care
+          </h6>
+          <p>
+            <a href="{% url 'about' %}" class="text-reset">About us</a>
+          </p>
+          <p>
+            <a href="{% url 'contact' %}" class="text-reset">Contact us</a>
+          </p>
+          <p>
+            <a href="{% url 'appointment' %}" class="text-reset">Book appointment</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Help</a>
+          </p>
+        </div>
+
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          <h6 class="text-uppercase fw-bold mb-4"  style="color: aqua;">Contact</h6>
+          <p>Sunyani, Bono Region</p>
+          <p>
+        <a class="a" href="mailto: medcare@yahoo.com">   medcare@yahoo.com</a> 
+          </p>
+          <p><a class="a" href="tel:0234675885"> 0234675885 </a> </p>
+          <p><a class="a" href="tel:0234567891"> 0234567891</a> </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.025);">
+    © <script>
+      var CurrentYear = new Date().getFullYear()
+      document.write(CurrentYear)
+  </script> Copyright:
+    <a class="text-reset fw-bold" href="#">Group 3</a>
+  </div>
+</footer>
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+   
+  </body>
+</html>

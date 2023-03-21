@@ -1,0 +1,152 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content%}
+
+{% for message in messages %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+   {{message}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+    {% endfor %}
+
+<section class="banner-area d-flex align-items-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-lg-6 col-xl-5">
+                <h1>Making Health<br>
+                Care Better Together</h1>
+                <p>Also you dry creeping beast multiply fourth abundantly our itsel signs bring our. Won form living. Whose dry you seasons divide given gathering great in whose you'll greater let livein form beast  sinthete
+                better together these place absolute right.</p>
+                <a href="{% url 'appointment' %}" class="main_btn">Make an Appointment</a>
+                <a href="{% url 'department_list' %}" class="main_btn_light">View Department</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<div class="container" >
+<h1 class="ss" style="padding: 70px 0px 50px 0px;">Departments</h1>
+          <div class="row">
+            <div class="col-sm-4 col-md-2 col-lg-2 col-xl-2 col-4">
+             <a href=""><img src="{% static 'images/ent.png' %}" width="90" id="imgg" height="90" class="d-inline-block align-top" alt="">
+                <h4 class="dpt-name">ENT dept.</h4></a>
+            </div>
+            <div class="col-sm-4 col-md-2 col-lg-2 col-xl-2 col-4">
+                <a href="{% url 'Pharmacy' %}"> <img src="{% static 'images/pharm.jpg' %}" width="90" id="imgg" height="90" class="d-inline-block align-top" alt="">
+                <h4 class="dpt-name">Pharmacy</h4></a>
+            </div>
+            <div class="col-sm-4 col-md-2 col-lg-2 col-xl-2 col-4">
+                <a href="{% url 'maternity' %}">  <img src="{% static 'images/maternity.png' %}" width="90" id="imgg" height="90" class="d-inline-block align-top" alt="">
+                <h4 class="dpt-name">Maternity</h4></a>
+            </div>
+            <div class="col-sm-4 col-md-2 col-lg-2 col-xl-2 col-4">
+                <a href="{% url 'theater' %}">  <img src="{% static 'images/medical.png' %}" width="90" height="90" class="d-inline-block align-top" alt="">
+                <h4 class="dpt-name">Medical</h4></a>
+            </div>
+            <div class="col-sm-4 col-md-2 col-lg-2 col-xl-2 col-4">
+                <a href="{% url 'Emergency' %}">  <img src="{% static 'images/surgical.png' %}" width="90" height="90" class="d-inline-block align-top" alt="">
+                <h4 class="dpt-name">Surgical</h4></a>
+              </div>
+              <div class="col-sm-4 col-md-2 col-lg-2 col-xl-2 col-4">
+                <a href="{% url 'Laboratory' %}"> <img src="{% static 'images/lab.jpg' %}" width="90" height="90" class="d-inline-block align-top" alt="">
+                <h4 class="dpt-name">Laboratory</h4></a>
+              </div>
+          </div>
+</div>
+
+
+<div style="padding-top: 90px;">
+<section class="hotline-area text-center area-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+            <h3 class="ss"  style="padding: 50px 0px 0px 0px; color: aliceblue;" >Emergency hotline</h3>
+            <a style="color: aliceblue;" href="tel:0234567890"> <span class="ee">(+233) 23 456 7890</span></a>
+                <p class="pt-3" style="padding-bottom: 20px;">We provide 24/7 customer support. Please feel free to contact us <br>for emergency case.</p>
+            </div>
+        </div>
+    </div>
+</section>
+</div>
+
+
+
+<div class="container" style="padding-bottom: 20px;">
+<h3 class="ss"  style="padding: 120px 0px 10px 0px;" >Medcare Experience Doctors</h3>
+<section class="team-area area-padding">
+                <p class="sub">Land meat winged called subdue without very light in all years sea appear midst forth image him third there set.<br> Land meat winged called subdue without very light in all years sea appear</p>
+
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card card-team">
+                    <img class="card-img rounded-0" src="{% static 'images/1.jpg' %}" alt="">
+                    <div class="card-team__body text-center">
+                        <h3><a href="#">Dr Adam Brain</a></h3>
+                        <p>Neurosurgeons</p>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card card-team">
+                    <img class="card-img rounded-0" src="{% static 'images/2.jpg' %}" alt="">
+                    <div class="card-team__body text-center">
+                        <h3><a href="#">Dr Blian Judge</a></h3>
+                        <p>Dietician</p>
+                     
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card card-team">
+                    <img class="card-img rounded-0" src="{% static 'images/3.jpg' %}" alt="">
+                    <div class="card-team__body text-center">
+                        <h3><a href="#">Dr Blian Judge</a></h3>
+                        <p>Cardiologist</p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<div style="background-color: color: #ededed;">
+    <div class="contact-form-wrapper d-flex justify-content-center">
+      <form action="#" method="POST" class="contact-form">
+        {% csrf_token %}
+        <h5 class="ss">Contact us</h5>
+        <p class="description">Feel free to contact us if you need any assistance, any help or another question.
+        </p>
+        <div>
+          <input type="text" name='name' class="form-control rounded border-white mb-3 form-input" id="name" placeholder="Name" required>
+        </div>
+        <div>
+          <input type="email" name='email' class="form-control rounded border-white mb-3 form-input" placeholder="Email" required>
+        </div>
+        <div>
+          <textarea id="message" name='message' class="form-control rounded border-white mb-3 form-text-area" rows="5" cols="30" placeholder="Message" required></textarea>
+        </div>
+        <div class="submit-button-wrapper">
+          <input type="submit" value="Send">
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+
+
+
+
+
+{% endblock %}

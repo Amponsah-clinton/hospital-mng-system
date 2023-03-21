@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content%}
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
+</head>
+
+{% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+    <div style="padding-top: 4px;" id="alert" class="alert alert-success alert-dismissible fade show container" role="alert">
+      {{ message }}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+
+
+<div class="container">
+  <form action="{% url 'record_list' %}" method="post">
+      {% csrf_token %}
+        {{ form.as_p }}
+      <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+  </form>
+</div>
+
+
+
+
+<br><br>
+<div class="container">
+<a class="btn btn-success  btn-lg"  href="{% url 'record_list' %}">Back</a>
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div style="padding-bottom: 60px;">
+
+</div>
+
+
+<script>
+  setTimeout(function() {
+    $('#alert').alert('close');
+  }, 5000);
+</script>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
+{% endblock %}

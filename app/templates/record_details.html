@@ -1,0 +1,258 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+
+</style>
+<h4 style="text-align: center; padding-top: 90px;">Details of {{all.name}}</h4>
+
+<div class="container" style="padding-top: 50px; ">
+    
+<div class="card">
+  <div class="card-header"><strong>
+    	{{ customer_record.first_name }} 
+		{{ customer_record.last_name }}</strong>
+  </div>
+  <div class="card-body">
+
+<p class="card-text">
+<strong>Name: </strong>{{ all.name }}</p>
+
+<p class="card-text">
+<strong>Age: </strong>{{ all.age }}</p>
+
+<p class="card-text">
+<strong>House Number: </strong>{{ all.House_number }}</p>
+
+<p class="card-text">
+<strong>Residence: </strong>{{ all.Residence }}</p>
+
+<p class="card-text">
+<strong>Next of Kin: </strong>{{ all.Next_of_Kin }}</p>
+
+<p class="card-text">
+  <strong>Phone Number: </strong>{{ all.Phone_number }}</p>
+  
+<p class="card-text">
+<strong>Occupation: </strong>{{ all.Occupation }}</p>
+
+<p class="card-text">
+  <strong>NHIS Number: </strong>{{ all.NHIS_number }}</p>
+    
+  </div>
+</div>
+<div>
+    
+</div>
+
+
+{% if user.is_OPD or user.is_superuser %}
+<div class="container" style="padding-top: 20px;">
+  <div class="row">
+    {% for vitals in vitals %}
+{% if all.Folder_number == vitals.patient.Folder_number %}
+    <div class="col-sm-4 col-md-2 col-lg-2 col-xl-2 col-4">
+        <div class="card" style="width: 13rem;">
+            <div class="card-body">
+               <p style="font-weight: 500; font-size: 12px;">{{vitals.date_created}}</p><hr>
+              <ul>
+                <li><b>Pulse:</b> {{vitals.pulse}}</li>
+                <li><b>Weight:</b> {{vitals.weight}}</li>
+                <li><b>Pressure:</b> {{vitals.pressure}}</li>
+                <li> <p style="color: crimson; font-weight: 600;font-size: 16px;">Nurse: {{user}}</p>  </li>
+              </ul>
+            </div>
+          </div><br>
+  </div>
+{% endif %}
+ {% endfor %}
+ {% endif %}
+
+</div>
+</div>   
+
+{% if user.is_Laboratory or user.is_superuser %}
+<div class="container" style="padding-top: 20px;">
+  <div class="row">
+    {% for lab_results in lab_results %}
+{% if all.Folder_number == lab_results.patient.Folder_number %}
+    <div class="col-sm-4 col-md-2 col-lg-2 col-xl-2 col-4">
+        <div class="card" style="width: 13rem;">
+               <p style="font-weight: 500; font-size: 12px;text-align: center;padding-top: 4px;">{{lab_results.date_created}}</p><hr>
+              <div style="padding-left: 10px;">
+               <b>Results:</b> {{lab_results.Results}}
+              <p style="color: crimson; font-weight: 600;font-size: 16px;padding-top: 14px;">Nurse: {{user}}</p> 
+            </div>
+          </div><br>
+  </div>
+{% endif %}
+ {% endfor %}
+ {% endif %}
+</div>
+</div> 
+
+{% if user.is_A_and_C or user.is_superuser %}
+<div class="container" style="padding-top: 20px;">
+  <div class="row">
+    {% for AC in AC %}
+{% if all.Folder_number == AC.patient.Folder_number %}
+    <div class="col-sm-4 col-md-2 col-lg-2 col-xl-2 col-4">
+        <div class="card" style="width: 13rem;">
+          <p style="font-weight: 500; font-size: 12px;text-align: center;padding-top: 4px;">{{AC.date_created}}</p><hr>
+              <div style="padding-left: 10px;">
+               <b>Drugs:</b> {{AC.drugs}}<BR>
+               <b>Body Examination:</b>  {{AC.body_examination}}
+              <p style="color: crimson; font-weight: 600;font-size: 16px;padding-top: 14px;">Nurse: {{user}}</p> 
+            </div>
+          </div><br>
+  </div>
+{% endif %}
+ {% endfor %}
+ {% endif %}
+</div>
+</div>  
+
+
+{% if user.is_Theater or user.is_superuser %}
+<div class="container" style="padding-top: 20px;">
+  <div class="row">
+    {% for Theaters in Theaters %}
+{% if all.Folder_number == Theaters.patient.Folder_number %}
+    <div class="col-sm-4 col-md-2 col-lg-2 col-xl-2 col-4">
+        <div class="card" style="width: 13rem;">
+          <p style="font-weight: 500; font-size: 12px;text-align: center;padding-top: 4px;">{{Theaters.date_created}}</p><hr>
+              <div style="padding-left: 10px;">
+               <b>Drugs:</b> {{Theaters.drugs}}<BR>
+               <b>Body Examination:</b>  {{Theaters.body_examination}}
+              <p style="color: crimson; font-weight: 600;font-size: 16px;padding-top: 14px;">Nurse: {{user}}</p> 
+            </div>
+          </div><br>
+  </div>
+{% endif %}
+ {% endfor %}
+ {% endif %}
+</div>
+</div>  
+
+
+{% if user.is_Maternity or user.is_superuser %}
+<div class="container" style="padding-top: 20px;">
+  <div class="row">
+    {% for maternity in maternity %}
+{% if all.Folder_number == maternity.patient.Folder_number %}
+    <div class="col-sm-4 col-md-2 col-lg-2 col-xl-2 col-4">
+        <div class="card" style="width: 13rem;">
+          <p style="font-weight: 500; font-size: 12px;text-align: center;padding-top: 4px;">{{maternity.date_created}}</p><hr>
+              <div style="padding-left: 10px;">
+               <b>Drugs:</b> {{maternity.drugs}}<BR>
+               <b>Body Examination:</b>  {{maternity.body_examination}}
+              <p style="color: crimson; font-weight: 600;font-size: 16px;padding-top: 14px;">Nurse: {{user}}</p> 
+            </div>
+          </div><br>
+  </div>
+{% endif %}
+ {% endfor %}
+ {% endif %}
+</div>
+</div>  
+
+
+{% if user.is_Emergency or user.is_superuser %}
+<div class="container" style="padding-top: 20px;">
+  <div class="row">
+    {% for emergency in emergency %}
+{% if all.Folder_number == emergency.patient.Folder_number %}
+    <div class="col-sm-4 col-md-2 col-lg-2 col-xl-2 col-4">
+        <div class="card" style="width: 13rem;">
+          <p style="font-weight: 500; font-size: 12px;text-align: center;padding-top: 4px;">{{emergency.date_created}}</p><hr>
+              <div style="padding-left: 10px;">
+               <b>Drugs:</b> {{emergency.drugs}}<BR>
+               <b>Body Examination:</b>  {{emergency.body_examination}}
+              <p style="color: crimson; font-weight: 600;font-size: 16px;padding-top: 14px;">Nurse: {{user}}</p> 
+            </div>
+          </div><br>
+  </div>
+{% endif %}
+ {% endfor %}
+ {% endif %}
+</div>
+</div>  
+
+
+
+
+{% if user.is_MFP or user.is_superuser %}
+<div class="container" style="padding-top: 20px;">
+  <div class="row">
+    {% for mfpp in mfpp %}
+{% if all.Folder_number == mfpp.patient.Folder_number %}
+    <div class="col-sm-4 col-md-2 col-lg-2 col-xl-2 col-4">
+        <div class="card" style="width: 13rem;">
+          <p style="font-weight: 500; font-size: 12px;text-align: center;padding-top: 4px;">{{mfpp.date_created}}</p><hr>
+              <div style="padding-left: 10px;">
+               <b>Drugs:</b> {{mfpp.drugs}}<BR>
+               <b>Body Examination:</b>  {{mfpp.body_examination}}
+              <p style="color: crimson; font-weight: 600;font-size: 16px;padding-top: 14px;">Nurse: {{user}}</p> 
+            </div>
+          </div><br>
+  </div>
+{% endif %}
+ {% endfor %}
+ {% endif %}
+</div>
+</div>  
+
+
+
+
+
+
+
+<br/><br/>
+<div class="container">
+
+<a href="{% url 'record_list' %}" class="btn btn-secondary">Back</a>
+
+{% if user.is_Records or user.is_superuser %}
+<a href="{% url 'delete_record' all.pk %}" class="btn btn-danger">Delete</a>
+<a href="{% url 'update_record' all.id %}" class="btn btn-primary">Update Record</a> 
+{% endif %}
+
+{% if user.is_OPD or user.is_superuser or user.is_A_and_C %}
+<a href="{% url 'add_vitals' %}" class="btn btn-primary">Add vital signs</a> 
+{% endif %}
+
+{% if user.is_Laboratory  or user.is_superuser %}
+<a href="{% url 'add_lab_results' %}" class="btn btn-info">Add Lab Results</a> 
+{% endif %}
+
+{% if user.is_A_and_C  or user.is_superuser %}
+<a href="{% url 'AC_vitals_records' %}" class="btn btn-success">Add A&C Results</a> 
+{% endif %}
+
+{% if user.is_Theater  or user.is_superuser %}
+<a href="{% url 'maternity_notes_records' %}" class="btn btn-secondary">Add Theater Records</a> 
+{% endif %}
+
+{% if user.is_Maternity  or user.is_superuser %}
+<a href="{% url 'maternity_notes_records' %}" class="btn btn-primary">Add Maternity Records</a> 
+{% endif %}<br><br>
+
+{% if user.is_Maternity  or user.is_superuser %}
+<a href="{% url 'emergency_notes_records' %}" class="btn btn-info">Add Emergency Records</a> 
+{% endif %}
+
+{% if user.is_Male  or user.is_superuser %}
+<a href="{% url 'mfp_records' %}" class="btn btn-info">Add MFP Records</a> 
+{% endif %}
+
+
+
+
+
+</div>
+	<p style="color: white;padding-top: 100px !important;">hello</p>
+</div>
+
+
+
+{% endblock %}

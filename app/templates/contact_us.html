@@ -1,0 +1,144 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content%}
+
+
+<style>
+    .contact-title {
+        font-size: 27px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: #2a2a2a; }
+      
+      .form-contact label {
+        color: #0051d2;
+        font-size: 14px; }
+      .form-contact .form-group {
+        margin-bottom: 30px; }
+      .form-contact .form-control {
+        border: 1px solid #f0e9ff;
+        border-radius: 5px;
+        height: 48px;
+        padding-left: 18px;
+        font-size: 13px;
+        background: transparent; }
+        .form-contact .form-control:focus {
+          outline: 0;
+          box-shadow: none; }
+        .form-contact .form-control::placeholder {
+          font-weight: 300;
+          color: #999999; }
+      .form-contact textarea {
+        border-radius: 12px;
+        height: 100% !important; }
+    .contact-info {
+        margin-bottom: 12px; }
+        .contact-info__icon {
+          margin-right: 20px; }
+          .contact-info__icon i, .contact-info__icon span {
+            color: #8f9195;
+            font-size: 27px; }
+        .contact-info .media-body h3 {
+          font-size: 16px;
+          margin-bottom: 0;
+          color: #2a2a2a; }
+          .contact-info .media-body h3 a {
+            color: #2a2a2a; }
+            .contact-info .media-body h3 a:hover {
+              color: #0051d2; }
+        .contact-info .media-body p {
+          color: #999999; }
+</style>
+
+<section class="banner_area">
+    <div class="banner_inner d-flex align-items-center">
+      <div class="container">
+        <div
+          class="banner_content d-md-flex justify-content-between align-items-center"
+        >
+          <div class="mb-3 mb-md-0">
+            <h2>Contact</h2>
+            <p>Belding years moveth earth green behold wherein</p>
+          </div>
+          <div class="page_link">
+            <a href="{% url 'index' %}">Home</a>
+            <a href="{% url 'contact' %}">Contact</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<section class="contact-section area-padding">
+  <div class="container">
+    <div class="d-none d-sm-block mb-5 pb-4" style="padding:90px 0px;">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.077578712982!2d-2.345459784784072!3d7.345185394699427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdac92abe6fadc3%3A0x2bfec643c6530e0c!2sSDA%20Hospital!5e0!3m2!1sen!2sgh!4v1679381081383!5m2!1sen!2sgh" width="1100" height="650" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+
+
+    <div class="row">
+      <div class="col-12">
+        <h2 class="contact-title">Get in Touch</h2>
+      </div>
+      <div class="col-lg-8">
+        <form class="form-contact contact_form" action="{% url 'index' %}" method="post" id="contactForm">
+            {% csrf_token %}
+          <div class="row">
+           
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input class="form-control" name="name" id="name" type="text" placeholder="Enter your name">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input class="form-control" name="email" id="email" type="email" placeholder="Enter email address">
+              </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9" placeholder="Enter Message"></textarea>
+                </div>
+              </div>
+          </div>
+          <div class="form-group mt-3">
+            <button type="submit" class="button button-contactForm btn-dark btn-lg">Send Message</button>
+          </div>
+        </form>
+
+
+      </div>
+
+      <div class="col-lg-4">
+        <div class="media contact-info">
+          <span class="contact-info__icon"><i class="fa fa-home" aria-hidden="true"></i></span>
+          <div class="media-body">
+            <h3>Sunyani, Bono Region</h3>
+            <p>GA 1248121092</p>
+          </div>
+        </div>
+        <div class="media contact-info">
+          <span class="contact-info__icon"><i class="fa fa-phone" aria-hidden="true"></i></span>
+          <div class="media-body">
+            <h3><a href="tel:454545654">+233 556 10 5897</a></h3>
+            <p>Everyday</p>
+          </div>
+        </div>
+        <div class="media contact-info">
+          <span class="contact-info__icon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+          <div class="media-body">
+            <h3><a href="mailto:support@colorlib.com">support@medcare.com</a></h3>
+            <p>Send us your query anytime!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+{% endblock%}
